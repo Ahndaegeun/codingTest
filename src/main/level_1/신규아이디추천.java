@@ -1,4 +1,4 @@
-package main;
+package main.level_1;
 
 public class 신규아이디추천 {
 
