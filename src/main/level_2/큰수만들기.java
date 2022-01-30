@@ -1,42 +1,43 @@
 package main.level_2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class 큰수만들기 {
 
     public static String solution(String number, int k) {
-        String answer = "";
-        char[] chars = number.toCharArray();
-        List<String> list = new ArrayList<>();
-
-        String temp = "";
+        StringBuilder answer = new StringBuilder();
+        char[] numberList = number.toCharArray();
+        int totalLen = numberList.length - k;
         int start = 0;
-        int i = 1;
-        while(start  <= number.length() - (number.length() - k)) {
-            if(temp.length() == number.length() - k) {
-                list.add(temp);
-                temp = "";
-                if(i >= number.length()) {
-                    start++;
-                    i = start + 1;
+        int end = numberList.length - k;
+
+
+        while(answer.length() < (numberList.length - k)) {
+            char temp = numberList[start];
+            int index = start;
+            for(int i = start; i < end; i++) {
+                if(numberList[i] == 9) {
+                    temp = numberList[i];
+                    index = i;
+                    break;
+                } else if(numberList[index] < numberList[i]) {
+                    temp = numberList[i];
+                    index = i;
                 }
-            } else if(temp.length() == 0) {
-                temp += chars[start];
-            } else if(temp.length() < number.length() - k) {
-                temp += chars[i++];
             }
+            answer.append(temp);
+            start = index + 1;
+            end = numberList.length - (totalLen - answer.length()) + 1;
         }
-//        Collections.sort(list);
-        System.out.println(list);
-//        System.out.println(list.get(list.size() - 1));
-        return answer;
+        System.out.println(answer);
+        return answer.toString();
     }
 
     public static void main(String[] args) {
+//        solution("1231234", 3); // 3234
 //        solution("1924", 2); // 94
-        solution("1231234", 3); // 3234
 //        solution("4177252841", 4); // 775841
+        solution("321924", 2); // 3924
+
     }
 }
