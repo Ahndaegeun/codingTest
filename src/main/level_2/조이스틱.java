@@ -9,16 +9,14 @@ public class 조이스틱 {
         char[] charArray = name.toCharArray();
         int answer = 0;
 
-        // 완전 탐색??
+
 
         return answer;
     }
     public static void main(String[] args) {
-//        solution("JAZ");
-//        solution("AAZ");
-        solution("JEROEN");
-//        solution("J");
-//        solution("JAN");
-//        solution("AABAAAAABBB");
+//        solution("JAZ"); // 11
+        solution("JEROEN"); // 56
+//        solution("JAN"); // 23
+//        solution("AABAAAAABBB"); // 11? 12?
     }
 }
