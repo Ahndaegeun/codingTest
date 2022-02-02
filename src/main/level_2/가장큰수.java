@@ -17,7 +17,7 @@ public class 가장큰수 {
         for(int i : sort) {
             answer.append(i);
         }
-
+        System.out.println(answer);
         return answer.toString();
     }
 
@@ -54,7 +54,6 @@ public class 가장큰수 {
 
     public static void main(String[] args) {
         solution(new int[]{6, 10, 2}); // 6210
-        solution(new int[]{6, 30, 2}); // 6302
-        solution(new int[]{3, 30, 34, 5, 9}); // 9534330
+        solution(new int[]{3, 30, 34, 0, 9}); // 9534330
     }
 }
