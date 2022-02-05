@@ -11,22 +11,31 @@ public class _124나라의숫자 {
     // 141 142 144
 
     public static String solution(int n) {
-        StringBuilder answer = new StringBuilder();
+        StringBuilder str = new StringBuilder();
+        int current = n;
+        int reminder = 0;
 
-        int lastNum = n % 3 == 0 ? 4 : n % 3;
-        int depth = (n - 1) / 3;
-        // 길이
-        // 앞에 패턴
+        while(current != 0){
+            reminder = current % 3;
+            current = current / 3;
 
-        System.out.println(lastNum + " " + depth);
-        return answer.toString();
+            if(reminder == 0) {
+                str.insert(0, 4);
+                current--;
+            } else {
+                str.insert(0, reminder);
+            }
+        }
+        return str.toString();
     }
 
     public static void main(String[] args) {
-        solution(1); // 1
-        solution(2); // 2
-        solution(3); // 4
-        solution(4); // 11
-        solution(14); // 112
+//        solution(1); // 1
+//        solution(2); // 2
+//        solution(3); // 4
+        solution(9); // 24
+        solution(13); // 111
+        solution(20); // 142
+
     }
 }
